@@ -1,0 +1,161 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+
+    <f:advanced>
+        <f:entry title="${%reportTitle.title}"
+                 field="reportTitle">
+            <f:textbox/>
+        </f:entry>
+
+        <f:section title="${%jsonReportDirectory}">
+            <f:entry title="${%jsonReportDirectory.title}"
+                     field="jsonReportDirectory">
+                <f:textbox/>
+            </f:entry>
+
+            <f:entry
+                    title="${%fileIncludePattern.title}"
+                    field="fileIncludePattern">
+                <f:textbox default="**/*.json"/>
+            </f:entry>
+            <f:entry
+                    title="${%fileExcludePattern.title}"
+                    field="fileExcludePattern">
+                <f:textbox/>
+            </f:entry>
+            <f:entry
+                    title="${%classificationsFilePattern.title}"
+                    field="classificationsFilePattern">
+                <f:textbox/>
+            </f:entry>
+            <f:entry
+                    title="${%trendsLimit.title}"
+                    field="trendsLimit">
+                <f:textbox default="0"/>
+            </f:entry>
+        </f:section>
+
+
+        <f:section title="${%buildResult}">
+            <f:description>
+                ${%buildResult.description}
+            </f:description>
+            <f:entry
+                    title="${%failedStepsNumber.title}"
+                    field="failedStepsNumber">
+                <f:textbox default="-1"/>
+            </f:entry>
+            <f:entry
+                    title="${%skippedStepsNumber.title}"
+                    field="skippedStepsNumber">
+                <f:textbox default="-1"/>
+            </f:entry>
+            <f:entry
+                    title="${%pendingStepsNumber.title}"
+                    field="pendingStepsNumber">
+                <f:textbox default="-1"/>
+            </f:entry>
+            <f:entry
+                    title="${%undefinedStepsNumber.title}"
+                    field="undefinedStepsNumber">
+                <f:textbox default="-1"/>
+            </f:entry>
+
+            <f:entry
+                    title="${%failedScenariosNumber.title}"
+                    field="failedScenariosNumber">
+                <f:textbox default="-1"/>
+            </f:entry>
+            <f:entry
+                    title="${%failedFeaturesNumber.title}"
+                    field="failedFeaturesNumber">
+                <f:textbox default="-1"/>
+            </f:entry>
+
+
+            <f:entry
+                    title="${%failedStepsPercentage.title}"
+                    field="failedStepsPercentage">
+                <f:textbox default="0"/>
+            </f:entry>
+            <f:entry
+                    title="${%skippedStepsPercentage.title}"
+                    field="skippedStepsPercentage">
+                <f:textbox default="0"/>
+            </f:entry>
+            <f:entry
+                    title="${%pendingStepsPercentage.title}"
+                    field="pendingStepsPercentage">
+                <f:textbox default="0"/>
+            </f:entry>
+            <f:entry
+                    title="${%undefinedStepsPercentage.title}"
+                    field="undefinedStepsPercentage">
+                <f:textbox default="0"/>
+            </f:entry>
+
+            <f:entry
+                    title="${%failedScenariosPercentage.title}"
+                    field="failedScenariosPercentage">
+                <f:textbox default="0"/>
+            </f:entry>
+            <f:entry
+                    title="${%failedFeaturesPercentage.title}"
+                    field="failedFeaturesPercentage">
+                <f:textbox default="0"/>
+            </f:entry>
+
+
+            <f:entry
+                    title="${%buildStatus.title}"
+                    field="buildStatus">
+                <f:select/>
+            </f:entry>
+
+            <f:entry
+                    title="${%stopBuildOnFailedReport.title}"
+                    field="stopBuildOnFailedReport">
+                <f:checkbox/>
+            </f:entry>
+        </f:section>
+
+        <f:section title="${%presentation}">
+
+            <f:entry
+                    title="${%sortingMethod.title}"
+                    field="sortingMethod">
+                <f:select/>
+            </f:entry>
+
+            <f:entry
+                    field="classifications"
+                    title="${%classifications.title}">
+                <f:repeatableProperty field="classifications"/>
+            </f:entry>
+
+            <f:entry
+                    title="${%reducingMethods.title}"
+                    field="reducingMethods">
+
+                <f:checkbox title="${%reducingMethods.mergeFeaturesById.title}"
+                            field="mergeFeaturesById"/>
+                <br/>
+                <f:checkbox title="${%reducingMethods.mergeFeaturesWithRetest.title}"
+                            field="mergeFeaturesWithRetest"/>
+                <br/>
+                <f:checkbox title="${%reducingMethods.hideEmptyHooks.title}"
+                            field="hideEmptyHooks"/>
+                <br/>
+                <f:checkbox title="${%reducingMethods.skipEmptyJSONFiles.title}"
+                            field="skipEmptyJSONFiles"/>
+                <br/>
+                <f:checkbox title="${%presentationModes.expandAllSteps.title}"
+                            field="expandAllSteps"/>
+
+            </f:entry>
+
+        </f:section>
+
+    </f:advanced>
+</j:jelly>
+
